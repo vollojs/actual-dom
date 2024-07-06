@@ -1,0 +1,59 @@
+$purple: #2f002f;
+
+.container {
+  position: fixed;
+  bottom: 38%;
+  left: 50%;
+  transform: translate(-50%);
+  cursor: pointer;
+  transition: transform .2s;
+  &:active { transform: translate(-50%) scale(.9) }
+}
+
+.switch, .bg {
+  display: flex;
+  filter: url(#gooey);
+  > li {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    &:first-child { margin-right: 2px }
+  }
+}
+
+.switch {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+  > li {
+    width: 40%;
+    height: 80%;
+    border-radius: 50%;
+    background: $purple;
+    transform: scale(0);
+    transition: transform .3s;
+    &:first-child { transform-origin: right }
+    &:last-child { transform-origin: left }
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 10px;
+    background: $purple;
+    transition: left .3s;
+  }
+  &:has(:first-child.active)::after { left: 5px }
+  &:has(:last-child.active)::after { left: 36px }
+}
+
+.bg > li {
+  background: #4c334c;
+}
+
+.active {
+  transform: scale(1)!important;
+}

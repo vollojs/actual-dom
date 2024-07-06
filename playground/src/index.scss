@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(#1a001a, #3c003c);
+  font: {
+    size: 36px;
+    family: Righteous;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  color: antiquewhite
+}
+
+fc-bubbles {
+  --color: wheat;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+}

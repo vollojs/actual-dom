@@ -1,0 +1,53 @@
+.roller {
+  width: 36px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid wheat { radius: 6px };
+  animation: enhance-bounce-in-down 1s calc(var(--delay) * 1s) forwards;
+}
+
+.rollee {
+  transform: translateY(calc(var(--index) * -3.703%))
+}
+
+.animate {
+  animation: move 1.5s linear infinite,
+    bounce-in-down 1s calc(var(--delay) * 1s) forwards
+}
+
+.stopAnimation {
+  animation: none;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(-96.3%);
+    filter: url(#blur)
+  }
+  to {
+    transform: translateY(0);
+    filter: url(#blur)
+  }
+}
+
+@keyframes bounce-in-down {
+  from {
+    transform: translateY(calc(var(--index) * -3.703% - 7%));
+    filter: none
+  }
+  25% { transform: translateY(calc(var(--index) * -3.703% + 3%)) }
+  50% { transform: translateY(calc(var(--index) * -3.703% - 1%)) }
+  70% { transform: translateY(calc(var(--index) * -3.703% + .6%)) }
+  85% { transform: translateY(calc(var(--index) * -3.703% - .3%)) }
+  to { transform: translateY(calc(var(--index) * -3.703%)) }
+}
+
+@keyframes enhance-bounce-in-down {
+  25% { transform: translateY(8%) }
+  50% { transform: translateY(-4%) }
+  70% { transform: translateY(2%) }
+  85% { transform: translateY(-1%) }
+  to { transform: translateY(0) }
+}
